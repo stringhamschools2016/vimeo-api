@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video 10</title>
+<link rel='stylesheet' href='/wp-content/themes/visia-child/style.css' type='text/css' />
+</head>
+<body>
+     <div class="videoWrapper">
+    <iframe src="https://player.vimeo.com/video/VIDEO-ID?autoplay=1" id="player" width="100%" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+     </div>  
+	<script src="/player.min.js"></script>
+	<script src="/control.min.js"></script>
+	
+	<script type="text/javascript">   
+	  	   // Select iframe and register video var name
+	   var iframe = '#player',
+	       track = 'VARIABLE-NAME';
+	   
+	   
+	   // Get player settings
+	   var player = parent.GetPlayer();
+	   
+	   /* Bind Vimeo iframe to API events. Expects three arguements:
+	    * iframe selector (string), watched (0/false - do not allow
+	    * seeking. 1/true - allow seeking), and function to be called
+	    * when video has ended.
+	    */
+	   new VimeoPlayer(iframe, player.GetVar(track), function () {
+	       player.SetVar(track, 1);
+	   });
+	   
+	</script>
+    
+</body>
+</html>
